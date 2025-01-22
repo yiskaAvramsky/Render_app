@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: Render API
+  description: API to fetch installed applications from Render
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+paths:
+  /apps:
+    get:
+      summary: Get the list of installed applications
+      description: Fetches the installed applications from Render
+      responses:
+        '200':
+          description: Successfully retrieved the list of applications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Failed to fetch applications
