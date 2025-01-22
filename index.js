@@ -13,6 +13,11 @@ const swaggerDocument = YAML.load('./swagger.yaml');
 // הגדרת Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// נתיב ראשי ריק
+app.get('/', (req, res) => {
+    res.send('Welcome to the API!');
+});
+
 app.get('/apps', async (req, res) => {
     try {
         const response = await axios.get('https://api.render.com/v1/services?includePreviews=true&limit=20', {
